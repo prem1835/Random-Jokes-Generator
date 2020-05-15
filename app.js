@@ -124,7 +124,6 @@ function clearFavButton() {
 
 function deleteButton(index) {
   factList.splice(index, 1);
-  localStorage.setItem("fact", JSON.stringify(factList));
   writeFact();
   console.log(index);
 }
