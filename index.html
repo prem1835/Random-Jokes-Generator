@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Chuck's Facts</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+          <h1 class="heading">CHUCK'S FACTS</h1>
+        </div>
+    </header>
+    <div class="main container favlist disable">
+      <div class="upper__block">
+        <div class="btn-2 button__back">
+          BACK
+        </div>
+        <h2 class="fav__heading">FAVS</h2>
+        <div class="btn-2 button__clear">
+          CLEAR FAVS
+        </div>
+      </div>
+      <div class="facts__textbox">
+      </div>
+    </div>
+    <div class="main container homepage">
+      <div class="facts__container">
+        <div class="facts__imgbox">
+          <img src="./menlaugh.jpg" class="facts__img" alt="">
+        </div>
+        <div class="facts__text main__text">
+        Wanna have some facts?
+       </div>
+       <div class="timer"></div>
+      </div>
+        <div class="buttons__container">
+          <div class="btn button__newJock">NEW FACT</div>
+          <div class="btn button__timer">START 3 SEC TIMER</div>
+          <div class="btn button__addfavs">ADD TO FAVS</div>
+          <div class="btn button__openfavs">OPEN FAVS</div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #acaaf5;
+  color: #0e0d45;
+  font-weight: 600;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+/* 1st page */
+
+.navbar {
+  background: #0e0d45;
+  color: #acaaf5;
+  padding: 10px;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.facts__text {
+  background: #fff;
+  padding: 20px 0 120px 20px;
+  box-shadow: inset 0 0 5px 1px #0e0d45;
+  margin-bottom: 70px;
+  border-radius: 0 32px 0 32px;
+  padding: 20px;
+  height: 170px;
+  overflow: hidden;
+}
+.facts__img {
+  max-width: 100%;
+  width: 30%;
+  border-radius: 150px;
+  margin: 1rem 0;
+}
+.facts__imgbox {
+  text-align: center;
+  margin: 20px 0;
+}
+.buttons__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
+.btn {
+  background-color: #0e0d45;
+  color: #acaaf5;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 7px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.facts__container {
+  position: relative;
+}
+.timer {
+  position: absolute;
+  top: 52%;
+  left: 42%;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader__img {
+  width: 160px;
+}
+.disable {
+  display: none;
+}
+/* 2nd page */
+
+.fav__heading {
+  font-size: xx-large;
+}
+.upper__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0;
+  margin-bottom: 80px;
+}
+
+.btn-2 {
+  background-color: #0e0d45;
+  color: #acaaf5;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  padding: 15px 60px;
+  border-radius: 7px;
+}
+.btn-2:hover {
+  opacity: 0.8;
+}
+
+.fav__text {
+  margin-bottom: 8px;
+  height: 155px;
+}
+.button__delete {
+  box-shadow: inset 0 0 4px 2px #f93838;
+}
+.favfactnumber {
+  margin-left: 20px;
+  font-size: xx-large;
+}
+.bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
