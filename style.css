@@ -141,6 +141,11 @@ h2 {
   .container {
     padding: 0 25px;
   }
+  .timer {
+    position: absolute;
+    top: 49%;
+    left: 38%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -163,5 +168,10 @@ h2 {
   }
   .btn-2 {
     margin-bottom: 30px;
+  }
+  .timer {
+    position: absolute;
+    top: 35%;
+    left: 30%;
   }
 }
