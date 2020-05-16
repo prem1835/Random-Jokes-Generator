@@ -17,9 +17,12 @@ const API_URL = "https://api.chucknorris.io/jokes/random";
 let intervalId;
 let timerStart;
 let fact;
-let id;
 let factList = getSavedFacts();
-//
+let deleteBtn;
+let wrapper;
+
+// function
+
 function getSavedFacts() {
   const factJSON = localStorage.getItem("fact");
   try {
@@ -32,7 +35,7 @@ function getSavedFacts() {
 function preLoader() {
   const loading = `<div class="loader">
     <img
-      src="./loading-bar.gif"
+      src="./images/loading-bar.gif"
       alt="Loading..."
       class="loader__img"
     />
@@ -45,7 +48,6 @@ function newJock() {
     .get(API_URL)
     .then((res) => {
       fact = res.data.value;
-      id = res.data.id;
       factsTextBox.textContent = fact;
     })
     .catch((err) => {
@@ -97,6 +99,7 @@ function writeFact() {
   localStorage.setItem("fact", JSON.stringify(factList));
   factList.forEach((factt, index) => {
     let output = `
+        <div class='wrapper'>
         <div class="facts__text fav__text">
          ${factt}
         </div>
@@ -105,9 +108,13 @@ function writeFact() {
           <div class="btn-2 button__delete">
             DELETE
           </div>
+        </div>
         </div>`;
     favText.innerHTML += output;
   });
+  wrapper = document.querySelectorAll(".wrapper");
+  deleteBtn = document.querySelectorAll(".button__delete");
+  deletefav();
 }
 function openFavList() {
   favlist.classList.remove("disable");
@@ -116,23 +123,43 @@ function openFavList() {
 
 function clearFavButton() {
   localStorage.clear();
-  factList = [];
-  writeFact();
+  favText.remove();
   addFavsBtn.textContent = "ADD TO FAVS";
   addFavsBtn.style.color = "#acaaf5";
 }
 
-function deleteButton(index) {
+function deleteButton(btn, index) {
   factList.splice(index, 1);
-  writeFact();
-  console.log(index);
+  localStorage.setItem("fact", JSON.stringify(factList));
+
+  wrapper.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (e.target === btn) {
+        el.remove();
+      }
+      wrapper = document.querySelectorAll(".wrapper");
+      deleteBtn = document.querySelectorAll(".button__delete");
+      if (deleteBtn.length === 0) {
+        addFavsBtn.textContent = "ADD TO FAVS";
+        addFavsBtn.style.color = "#acaaf5";
+      }
+    });
+  });
 }
 
 function backButton() {
   favlist.classList.add("disable");
   homePage.classList.remove("disable");
-  console.log("a");
 }
+
+function deletefav() {
+  deleteBtn.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      deleteButton(btn, index);
+    });
+  });
+}
+deletefav();
 
 // Adding event listener
 
@@ -141,11 +168,4 @@ newJockBtn.addEventListener("click", newJock);
 addFavsBtn.addEventListener("click", addFactToList);
 timerBtn.addEventListener("click", startTimer);
 openFavBtn.addEventListener("click", openFavList);
-
 clearFavBtn.addEventListener("click", clearFavButton);
-const deleteBtn = document.querySelectorAll(".button__delete");
-deleteBtn.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    deleteButton(index);
-  });
-});
