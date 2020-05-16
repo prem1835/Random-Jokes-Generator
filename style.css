@@ -136,3 +136,32 @@ h2 {
   justify-content: space-between;
   margin-bottom: 70px;
 }
+
+@media (max-width: 900px) {
+  .container {
+    padding: 0 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .buttons__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 4);
+    grid-gap: 20px;
+  }
+  .upper__block {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 40px;
+    margin: 10px 0;
+  }
+  .fav__heading {
+    font-size: xx-large;
+    margin: 30px 0;
+    order: 1;
+  }
+  .btn-2 {
+    margin-bottom: 30px;
+  }
+}
