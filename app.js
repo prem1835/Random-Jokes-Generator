@@ -123,7 +123,8 @@ function openFavList() {
 
 function clearFavButton() {
   localStorage.clear();
-  favText.remove();
+  factList = [];
+  writeFact();
   addFavsBtn.textContent = "ADD TO FAVS";
   addFavsBtn.style.color = "#acaaf5";
 }
