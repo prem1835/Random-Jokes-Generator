@@ -136,6 +136,11 @@ h2 {
   justify-content: space-between;
   margin-bottom: 70px;
 }
+.emptymsg {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 100px;
+}
 
 @media (max-width: 900px) {
   .container {
@@ -173,5 +178,10 @@ h2 {
     position: absolute;
     top: 35%;
     left: 30%;
+  }
+  .emptymsg {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 70px;
   }
 }

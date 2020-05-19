@@ -97,21 +97,28 @@ writeFact();
 function writeFact() {
   favText.innerHTML = "";
   localStorage.setItem("fact", JSON.stringify(factList));
-  factList.forEach((factt, index) => {
-    let output = `
-        <div class='wrapper'>
-        <div class="facts__text fav__text">
-         ${factt}
-        </div>
-        <div class="bottom-wrapper">
-          <span class="favfactnumber">${index + 1}</span>
-          <div class="btn-2 button__delete">
-            DELETE
+  if (factList.length > 0) {
+    factList.forEach((factt, index) => {
+      let output = `
+          <div class='wrapper'>
+          <div class="facts__text fav__text">
+           ${factt}
           </div>
-        </div>
-        </div>`;
-    favText.innerHTML += output;
-  });
+          <div class="bottom-wrapper">
+            <span class="favfactnumber">${index + 1}</span>
+            <div class="btn-2 button__delete">
+              DELETE
+            </div>
+          </div>
+          </div>`;
+      favText.innerHTML += output;
+    });
+  } else {
+    const emptymsg = document.createElement("p");
+    emptymsg.classList.add("emptymsg");
+    emptymsg.textContent = "No Favs to show 🧙‍♂️";
+    favText.appendChild(emptymsg);
+  }
   wrapper = document.querySelectorAll(".wrapper");
   deleteBtn = document.querySelectorAll(".button__delete");
   deletefav();
@@ -136,7 +143,8 @@ function deleteButton(btn, index) {
   wrapper.forEach((el) => {
     el.addEventListener("click", (e) => {
       if (e.target === btn) {
-        el.remove();
+        // el.remove();
+        writeFact();
       }
       wrapper = document.querySelectorAll(".wrapper");
       deleteBtn = document.querySelectorAll(".button__delete");
@@ -154,11 +162,13 @@ function backButton() {
 }
 
 function deletefav() {
-  deleteBtn.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      deleteButton(btn, index);
+  if (deleteBtn.length > 0) {
+    deleteBtn.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        deleteButton(btn, index);
+      });
     });
-  });
+  }
 }
 deletefav();
 
